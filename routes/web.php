@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Laravel\Lumen\Routing\Router $router */
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,13 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+
+$router->post('api/register', 'AuthController@register');
+$router->post('api/login', 'AuthController@login');
+
+$router->group(['middleware' => 'auth.jwt'], function() {
+    Route::get('api/posts', 'PostController@index');
+    Route::post('api/posts', 'PostController@store');
+    Route::get('api/posts/{id}', 'PostController@show');
 });
