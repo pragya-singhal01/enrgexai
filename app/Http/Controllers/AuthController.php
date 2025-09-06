@@ -11,15 +11,6 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-    protected function createNewToken($token)
-    {
-        return [
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => JWTAuth::factory()->getTTL() * 60
-        ];
-    }
-
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
