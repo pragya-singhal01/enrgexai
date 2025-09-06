@@ -1,15 +1,4 @@
-<template>
-  <form @submit.prevent="handleRegister">
-    <input v-model="name" type="text" placeholder="Name" required />
-    <input v-model="email" type="email" placeholder="Email" required />
-    <input v-model="password" type="password" placeholder="Password" required />
-    <input v-model="confirm" type="password" placeholder="Confirm Password" required />
-    <button type="submit">Register</button>
-    <p v-if="error" class="error">{{ error }}</p>
-  </form>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import axios from '../axios';
 import { useRouter } from 'vue-router';
@@ -40,6 +29,17 @@ const handleRegister = async () => {
   }
 };
 </script>
+
+<template>
+  <form @submit.prevent="handleRegister">
+    <input v-model="name" type="text" placeholder="Name" required />
+    <input v-model="email" type="email" placeholder="Email" required />
+    <input v-model="password" type="password" placeholder="Password" required />
+    <input v-model="confirm" type="password" placeholder="Confirm Password" required />
+    <button type="submit">Register</button>
+    <p v-if="error" class="error">{{ error }}</p>
+  </form>
+</template>
 
 <style scoped>
 .error {

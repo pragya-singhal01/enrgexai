@@ -1,13 +1,4 @@
-<template>
-  <form @submit.prevent="handleLogin">
-    <input v-model="email" type="email" placeholder="Email" required />
-    <input v-model="password" type="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-    <p v-if="error" class="error">{{ error }}</p>
-  </form>
-</template>
-
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import axios from '../axios';
 import { useRouter } from 'vue-router';
@@ -27,6 +18,15 @@ const handleLogin = async () => {
   }
 };
 </script>
+
+<template>
+  <form @submit.prevent="handleLogin">
+    <input v-model="email" type="email" placeholder="Email" required />
+    <input v-model="password" type="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+    <p v-if="error" class="error">{{ error }}</p>
+  </form>
+</template>
 
 <style scoped>
 .error {

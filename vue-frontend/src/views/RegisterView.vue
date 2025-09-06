@@ -1,3 +1,7 @@
+<script setup lang="ts">
+ import RegisterForm from '../components/RegisterForm.vue';
+</script>
+
 <template>
   <div class="auth-container">
     <h2>Register</h2>
@@ -5,10 +9,6 @@
     <router-link to="/login">Already have an account? Login here.</router-link>
   </div>
 </template>
-
-<script setup>
-import RegisterForm from '../components/RegisterForm.vue';
-</script>
 
 <style scoped>
 .auth-container {
